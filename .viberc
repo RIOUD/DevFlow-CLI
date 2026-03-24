@@ -1,0 +1,9 @@
+// .viberc
+const path = require('path');
+
+module.exports = {
+  commands: path.join(__dirname, '.vibe', 'commands'),
+  agents: path.join(__dirname, '.vibe', 'agents'),
+  skills: path.join(__dirname, '.vibe', 'skills'),
+  templates: path.join(__dirname, '.vibe', 'templates')
+};
