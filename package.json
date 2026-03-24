@@ -1,0 +1,32 @@
+{
+  "name": "vibe-cli",
+  "version": "1.0.0",
+  "description": "A proactive, session-aware CLI for developers. Automates repetitive tasks, enforces best practices, and helps you resume work seamlessly.",
+  "main": "test-vibe.js",
+  "bin": {
+    "vibe": "test-vibe.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "automation",
+    "developer-tools",
+    "productivity",
+    "mistral"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RIOUD/Vibe_cli_Automation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RIOUD/Vibe_cli_Automation/issues"
+  },
+  "homepage": "https://github.com/RIOUD/Vibe_cli_Automation#readme"
+}

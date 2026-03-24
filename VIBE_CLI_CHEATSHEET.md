@@ -1,6 +1,11 @@
-# Vibe CLI Cheat Sheet
+# DevFlow CLI Cheat Sheet
+
+**Optimized for use with Mistral AI's Vibe CLI.**
+
+This cheat sheet provides **workflows and commands** tailored to enhance your experience with Mistral AI's Vibe CLI. It is **not** affiliated with or endorsed by Mistral AI but is designed to complement their tools.
 
 ## Quick Reference for Commands, Agents, and Workflow
+=======
 
 ---
 

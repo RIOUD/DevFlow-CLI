@@ -1,6 +1,11 @@
-# Vibe CLI Automation
+# DevFlow CLI
 
-A **proactive, session-aware CLI** for developers. Automates repetitive tasks, enforces best practices, and helps you resume work seamlessly.
+**A proactive, session-aware CLI optimized for use with Mistral AI's Vibe CLI.**
+
+This project provides **workflows, templates, and automation** tailored to enhance your experience with Mistral AI's Vibe CLI. It is **not** affiliated with or endorsed by Mistral AI but is designed to complement their tools.
+
+## Features
+=======
 
 ## Features
 
