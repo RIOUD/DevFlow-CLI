@@ -7,7 +7,18 @@
     "vibe": "test-vibe.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "vibe": "node test-vibe.js",
+    "scaffold": "node test-vibe.js @scaffold",
+    "gen-tests": "node test-vibe.js @gen-tests",
+    "cleanup": "node test-vibe.js @cleanup",
+    "secure-func": "node test-vibe.js @secure-func",
+    "data-model": "node test-vibe.js @data-model",
+    "audit": "node test-vibe.js @audit",
+    "doctor": "node test-vibe.js @doctor",
+    "commit": "node test-vibe.js @commit",
+    "end-session": "node test-vibe.js end-session",
+    "start-session": "node test-vibe.js start-session",
+    "test": "node --test test/cli.test.js"
   },
   "keywords": [
     "cli",

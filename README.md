@@ -5,9 +5,6 @@
 This project provides **workflows, templates, and automation** tailored to enhance your experience with Mistral AI's Vibe CLI. It is **not** affiliated with or endorsed by Mistral AI but is designed to complement their tools.
 
 ## Features
-=======
-
-## Features
 
 ✅ **Proactive Workflow**: Commands suggest next steps.
 ✅ **Session Management**: `@end-session` and `@start-session` to track progress.
@@ -22,6 +19,8 @@ This project provides **workflows, templates, and automation** tailored to enhan
 git clone https://github.com/RIOUD/Vibe_cli_Automation.git
 cd Vibe_cli_Automation
 npm install
+# Optional: expose `vibe` globally on your machine
+npm link
 ```
 
 ### Option 2: Use the Setup Script
@@ -32,6 +31,22 @@ cd MyApp
 
 ## Usage
 
+### Fastest Daily Use
+```bash
+# If linked globally (`npm link`), run from any repo
+vibe @doctor
+vibe @audit src/index.js
+vibe @commit
+vibe --help
+```
+
+### Local Script Wrapper
+```bash
+# Use npm scripts and pass command args after --
+npm run scaffold -- UserProfile
+npm run audit -- src/UserProfile/UserProfile.jsx
+```
+
 ### Commands
 | Command | Description |
 |---------|-------------|
@@ -40,6 +55,7 @@ cd MyApp
 | `@cleanup <file>` | Remove dead code |
 | `@secure-func <desc>` | Generate a secure function |
 | `@data-model <name>` | Generate a data model |
+| `@doctor` | Validate environment and repo readiness |
 | `@audit <file>` | Audit code for issues |
 | `@commit` | Generate commit message |
 | `end-session` | Summarize work done |
@@ -48,18 +64,18 @@ cd MyApp
 ### Example Workflow
 ```bash
 # Start a new feature
-npm run scaffold UserProfile
-npm run data-model User
+npm run scaffold -- UserProfile
+npm run data-model -- User
 
 # Implement logic
-npm run secure-func "Fetch user data"
+npm run secure-func -- "Fetch user data"
 
 # Audit and test
-npm run audit src/UserProfile
-npm run gen-tests src/UserProfile/UserProfile.jsx
+npm run audit -- src/UserProfile
+npm run gen-tests -- src/UserProfile/UserProfile.jsx
 
 # Clean up and commit
-npm run cleanup src/UserProfile/UserProfile.jsx
+npm run cleanup -- src/UserProfile/UserProfile.jsx
 git add src/UserProfile/
 npm run commit
 
@@ -97,7 +113,7 @@ npm run start-session
    ```
 3. Use the command:
    ```bash
-   node test-vibe.js @new-command
+   vibe @new-command
    ```
 
 ### Add New Templates

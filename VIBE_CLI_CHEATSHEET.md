@@ -11,13 +11,24 @@ This cheat sheet provides **workflows and commands** tailored to enhance your ex
 
 ## 🚀 Commands
 
+### `--help` or `help`
+**Purpose:** Show all available commands with descriptions.
+**Example:**
+```bash
+vibe --help
+# or
+vibe help
+```
+
+---
+
 ### `@scaffold <componentName>` or `/scaffold <componentName>`
 **Purpose:** Generate boilerplate code for a new component.
 **Example:**
 ```bash
-node test-vibe.js @scaffold UserProfile
+vibe @scaffold UserProfile
 # or
-node test-vibe.js /scaffold UserProfile
+vibe /scaffold UserProfile
 ```
 **Output:**
 - `src/<componentName>/<componentName>.jsx` (React component)
@@ -29,9 +40,9 @@ node test-vibe.js /scaffold UserProfile
 **Purpose:** Generate tests for a file.
 **Example:**
 ```bash
-node test-vibe.js @gen-tests src/UserProfile/UserProfile.jsx
+vibe @gen-tests src/UserProfile/UserProfile.jsx
 # or
-node test-vibe.js /gen-tests src/UserProfile/UserProfile.jsx
+vibe /gen-tests src/UserProfile/UserProfile.jsx
 ```
 **Output:**
 - `src/<componentName>/<componentName>.test.js` (Test file)
@@ -42,9 +53,9 @@ node test-vibe.js /gen-tests src/UserProfile/UserProfile.jsx
 **Purpose:** Remove dead code and refactor.
 **Example:**
 ```bash
-node test-vibe.js @cleanup src/UserProfile/UserProfile.jsx
+vibe @cleanup src/UserProfile/UserProfile.jsx
 # or
-node test-vibe.js /cleanup src/UserProfile/UserProfile.jsx
+vibe /cleanup src/UserProfile/UserProfile.jsx
 ```
 **Actions:**
 - Removes unused imports
@@ -57,9 +68,9 @@ node test-vibe.js /cleanup src/UserProfile/UserProfile.jsx
 **Purpose:** Generate a secure function.
 **Example:**
 ```bash
-node test-vibe.js @secure-func "Fetch user data from API"
+vibe @secure-func "Fetch user data from API"
 # or
-node test-vibe.js /secure-func "Fetch user data from API"
+vibe /secure-func "Fetch user data from API"
 ```
 **Output:**
 - `src/utils/<function-name>.js` (Secure function)
@@ -70,9 +81,9 @@ node test-vibe.js /secure-func "Fetch user data from API"
 **Purpose:** Generate a data model.
 **Example:**
 ```bash
-node test-vibe.js @data-model User
+vibe @data-model User
 # or
-node test-vibe.js /data-model User
+vibe /data-model User
 ```
 **Output:**
 - `src/models/<name>.js` (Data model)
@@ -83,9 +94,9 @@ node test-vibe.js /data-model User
 **Purpose:** Analyze a file for issues (e.g., `console.log`, hardcoded secrets, TODOs).
 **Example:**
 ```bash
-node test-vibe.js @audit src/UserProfile/UserProfile.jsx
+vibe @audit src/UserProfile/UserProfile.jsx
 # or
-node test-vibe.js /audit src/UserProfile/UserProfile.jsx
+vibe /audit src/UserProfile/UserProfile.jsx
 ```
 **Checks:**
 - `console.log` statements
@@ -94,13 +105,29 @@ node test-vibe.js /audit src/UserProfile/UserProfile.jsx
 
 ---
 
+### `@doctor` or `/doctor`
+**Purpose:** Validate environment and project readiness before you start coding.
+**Example:**
+```bash
+vibe @doctor
+# or
+vibe /doctor
+```
+**Checks:**
+- Node.js and npm availability/version
+- Git availability and repo context
+- `.vibe`, `.viberc`, and command path readiness
+- Write permissions for workspace and `.vibe`
+
+---
+
 ### `@commit` or `/commit`
 **Purpose:** Generate a conventional commit message.
 **Example:**
 ```bash
-node test-vibe.js @commit
+vibe @commit
 # or
-node test-vibe.js /commit
+vibe /commit
 ```
 **Output:**
 ```plaintext
@@ -113,7 +140,7 @@ feat(master): Add changes for master
 **Purpose:** Summarize the work done and suggest next steps.
 **Example:**
 ```bash
-node test-vibe.js end-session
+vibe end-session
 ```
 **Output:**
 - Saves session summary to `.vibe/session.log`.
@@ -126,7 +153,7 @@ node test-vibe.js end-session
 **Purpose:** Resume the previous session and suggest next steps.
 **Example:**
 ```bash
-node test-vibe.js start-session
+vibe start-session
 ```
 **Output:**
 - Reads `.vibe/session.log`.
@@ -240,23 +267,23 @@ dependencyCheck.execute();
 ### Phase 1: Setup
 1. **Start a new feature**
    ```bash
-   node test-vibe.js @scaffold <componentName>
+   vibe @scaffold <componentName>
    # or
-   node test-vibe.js /scaffold <componentName>
+   vibe /scaffold <componentName>
    ```
 2. **Generate data models**
    ```bash
-   node test-vibe.js @data-model <name>
+   vibe @data-model <name>
    # or
-   node test-vibe.js /data-model <name>
+   vibe /data-model <name>
    ```
 
 ### Phase 2: Implement
 1. **Write secure functions**
    ```bash
-   node test-vibe.js @secure-func <description>
+   vibe @secure-func <description>
    # or
-   node test-vibe.js /secure-func <description>
+   vibe /secure-func <description>
    ```
 2. **Integrate with existing code**
    - Check for conflicts and route overlaps.
@@ -264,15 +291,15 @@ dependencyCheck.execute();
 ### Phase 3: Verify
 1. **Audit the code**
    ```bash
-   node test-vibe.js @audit <filePath>
+   vibe @audit <filePath>
    # or
-   node test-vibe.js /audit <filePath>
+   vibe /audit <filePath>
    ```
 2. **Generate tests**
    ```bash
-   node test-vibe.js @gen-tests <filePath>
+   vibe @gen-tests <filePath>
    # or
-   node test-vibe.js /gen-tests <filePath>
+   vibe /gen-tests <filePath>
    ```
 3. **Run tests**
    ```bash
@@ -282,15 +309,15 @@ dependencyCheck.execute();
 ### Phase 4: Review
 1. **Clean up code**
    ```bash
-   node test-vibe.js @cleanup <filePath>
+   vibe @cleanup <filePath>
    # or
-   node test-vibe.js /cleanup <filePath>
+   vibe /cleanup <filePath>
    ```
 2. **Final audit**
    ```bash
-   node test-vibe.js @audit <filePath>
+   vibe @audit <filePath>
    # or
-   node test-vibe.js /audit <filePath>
+   vibe /audit <filePath>
    ```
 
 ### Phase 5: Commit
@@ -300,9 +327,9 @@ dependencyCheck.execute();
    ```
 2. **Generate commit message**
    ```bash
-   node test-vibe.js @commit
+   vibe @commit
    # or
-   node test-vibe.js /commit
+   vibe /commit
    ```
 3. **Commit changes**
    ```bash
@@ -341,7 +368,7 @@ dependencyCheck.execute();
    ```
 3. Use the command:
    ```bash
-   node test-vibe.js gen-tests <filePath>
+   vibe gen-tests <filePath>
    ```
 
 ### Add a New Template
@@ -357,32 +384,32 @@ dependencyCheck.execute();
 
 1. **Scaffold the component and data model**
    ```bash
-   node test-vibe.js @scaffold UserProfile
-   node test-vibe.js @data-model User
+   vibe @scaffold UserProfile
+   vibe @data-model User
    ```
 2. **Implement secure functions**
    ```bash
-   node test-vibe.js @secure-func "Fetch user data from API"
-   node test-vibe.js @secure-func "Update user profile"
+   vibe @secure-func "Fetch user data from API"
+   vibe @secure-func "Update user profile"
    ```
 3. **Audit the code**
    ```bash
-   node test-vibe.js @audit src/UserProfile
+   vibe @audit src/UserProfile
    ```
 4. **Generate and run tests**
    ```bash
-   node test-vibe.js @gen-tests src/UserProfile/UserProfile.jsx
+   vibe @gen-tests src/UserProfile/UserProfile.jsx
    npm test
    ```
 5. **Clean up and final audit**
    ```bash
-   node test-vibe.js @cleanup src/UserProfile
-   node test-vibe.js @audit src/UserProfile
+   vibe @cleanup src/UserProfile
+   vibe @audit src/UserProfile
    ```
 6. **Commit changes**
    ```bash
    git add src/UserProfile/
-   node test-vibe.js @commit
+   vibe @commit
    git commit -m "feat(profile): add user profile page with secure API calls"
    ```
 
