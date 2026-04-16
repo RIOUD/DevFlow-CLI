@@ -91,7 +91,7 @@ vibe /data-model User
 ---
 
 ### `@audit <filePath>` or `/audit <filePath>`
-**Purpose:** Analyze a file against OWASP Top 10 (2021) plus a 2026 readiness profile.
+**Purpose:** Analyze a file against OWASP Web Top 10 (2021) and OWASP Agentic ASI Top 10 (2026).
 **Example:**
 ```bash
 vibe @audit src/UserProfile/UserProfile.jsx
@@ -99,11 +99,11 @@ vibe @audit src/UserProfile/UserProfile.jsx
 vibe /audit src/UserProfile/UserProfile.jsx
 ```
 **Checks:**
-- OWASP Top 10 categories (`A01` through `A10`)
-- Heuristic checks for injection, weak crypto, auth/session flaws, SSRF, and misconfiguration
-- 2026 readiness profile for modern API/AI threat surfaces
+- OWASP Web Top 10 categories (`A01` through `A10`)
+- OWASP Agentic Top 10 categories (`ASI01` through `ASI10`)
+- Heuristic checks for injection, tool misuse, memory poisoning, inter-agent communication, and cascading failures
 
-**Note:** OWASP Top 10 2026 is not an official published list yet. This uses a forward-looking readiness profile aligned to likely risk trends.
+**Source:** `docs/OWASP-Top-10-for-Agentic-Applications-2026-12.6-1.pdf`
 
 ---
 

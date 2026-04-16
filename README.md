@@ -56,7 +56,7 @@ npm run audit -- src/UserProfile/UserProfile.jsx
 | `@secure-func <desc>` | Generate a secure function |
 | `@data-model <name>` | Generate a data model |
 | `@doctor` | Validate environment and repo readiness |
-| `@audit <file>` | OWASP Top 10 + 2026 readiness audit |
+| `@audit <file>` | OWASP Web Top 10 + OWASP Agentic ASI Top 10 (2026) audit |
 | `@commit` | Generate commit message |
 | `end-session` | Summarize work done |
 | `start-session` | Resume previous session |

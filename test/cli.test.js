@@ -60,6 +60,7 @@ test('audit reports OWASP findings for insecure sample', () => {
 const crypto = require('crypto');
 const hash = crypto.createHash('md5').update('test').digest('hex');
 eval("console.log('unsafe')");
+const systemPrompt = userInput;
 `
   );
 
@@ -69,6 +70,7 @@ eval("console.log('unsafe')");
   assert.match(result.stdout, /OWASP Security Audit/);
   assert.match(result.stdout, /A02:2021/);
   assert.match(result.stdout, /A03:2021/);
+  assert.match(result.stdout, /ASI05:2026/);
 
   fs.rmSync(tmpDir, { recursive: true, force: true });
 });
