@@ -91,7 +91,7 @@ vibe /data-model User
 ---
 
 ### `@audit <filePath>` or `/audit <filePath>`
-**Purpose:** Analyze a file for issues (e.g., `console.log`, hardcoded secrets, TODOs).
+**Purpose:** Analyze a file against OWASP Top 10 (2021) plus a 2026 readiness profile.
 **Example:**
 ```bash
 vibe @audit src/UserProfile/UserProfile.jsx
@@ -99,9 +99,11 @@ vibe @audit src/UserProfile/UserProfile.jsx
 vibe /audit src/UserProfile/UserProfile.jsx
 ```
 **Checks:**
-- `console.log` statements
-- Hardcoded secrets (`password`, `secret`)
-- TODO comments
+- OWASP Top 10 categories (`A01` through `A10`)
+- Heuristic checks for injection, weak crypto, auth/session flaws, SSRF, and misconfiguration
+- 2026 readiness profile for modern API/AI threat surfaces
+
+**Note:** OWASP Top 10 2026 is not an official published list yet. This uses a forward-looking readiness profile aligned to likely risk trends.
 
 ---
 

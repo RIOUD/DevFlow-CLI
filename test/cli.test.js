@@ -2,6 +2,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const { spawnSync } = require('node:child_process');
 const path = require('node:path');
+const fs = require('node:fs');
 
 const projectRoot = path.resolve(__dirname, '..');
 const cliEntry = path.join(projectRoot, 'test-vibe.js');
@@ -47,4 +48,27 @@ test('doctor command completes successfully', () => {
 
   assert.equal(result.status, 0);
   assert.match(result.stdout, /=== Vibe Doctor Report ===/);
+});
+
+test('audit reports OWASP findings for insecure sample', () => {
+  const tmpDir = fs.mkdtempSync(path.join(projectRoot, '.tmp-vibe-audit-'));
+  const sampleFile = path.join(tmpDir, 'insecure.js');
+
+  fs.writeFileSync(
+    sampleFile,
+    `
+const crypto = require('crypto');
+const hash = crypto.createHash('md5').update('test').digest('hex');
+eval("console.log('unsafe')");
+`
+  );
+
+  const result = runCli(['@audit', sampleFile]);
+
+  assert.equal(result.status, 1);
+  assert.match(result.stdout, /OWASP Security Audit/);
+  assert.match(result.stdout, /A02:2021/);
+  assert.match(result.stdout, /A03:2021/);
+
+  fs.rmSync(tmpDir, { recursive: true, force: true });
 });
